@@ -25,6 +25,7 @@ var webshot = function(url, w, h) {
             phantom.exit()
         } else {
             window.setTimeout(function() {
+            window.setInterval(function() {
                 page.clipRect = { top: 0, left: 0, width: w, height: h }
                 f = url2filename(url, w, h)
                 page.evaluate(function() {
@@ -36,6 +37,7 @@ var webshot = function(url, w, h) {
                 page.render(f)
                 phantom.exit()
             }, 200)
+            }, 1)
         }
     })
 }
