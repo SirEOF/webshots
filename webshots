@@ -34,7 +34,7 @@ if not args.url.startswith(('http://', 'https://')):
     args.url = 'http://' + args.url
 
 if args.width and args.height:
-    call(['phantomjs', phantomscript, args.url, args.width, args.height])
+    call(['phantomjs', '--ignore-ssl-errors=true', phantomscript, args.url, args.width, args.height])
 else:
     for r in resolutions:
-        call(['phantomjs', phantomscript, args.url, str(r[0]), str(r[1])])
+        call(['phantomjs', '--ignore-ssl-errors=true', phantomscript, args.url, str(r[0]), str(r[1])])
